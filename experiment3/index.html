@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 3 - Alternate Worlds</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -26,36 +26,47 @@
 	<script type="text/javascript" src="./js/project.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
+	<script type="text/javascript" src="./js/solution.js" DEFER></script>
+	
 </head>
 <body>
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
 	<main id="content">
 		<section>
 
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 3 - Alternate Worlds</h1>
 
 			<div class="minor-section">
 				<div id="canvas-container">
-					<!-- canvas will be added here -->
+					<div class="reseedButton-box">
+						<button id="reseedButton">Reseed</button>
+						<span id="seedReport"></span>
+					</div>
+					<span id="canvasContainer" style="margin: 10px;"></span>
+					<textarea 
+						id="asciiBox" 
+						cols="20" 
+						rows="20" 
+						style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;">
+					</textarea>
 				</div>
-                <div class="fullscreen-box">
-                    <button id="fullscreen">Fullscreen</button>
-                </div>
-			</div>
-
+				<div class="fullscreen-box">
+					<button id="fullscreen">Fullscreen</button>
+				</div>
+ 
 			<div class="minor-section">
 				<h2>Description</h2>
-				<p>What are you trying to acomplish with this experiment?</p>
+				<p>Using Kacper Woźniak's tileset to generate overworld and dungeon map</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Technical</h2>
-				<p>Describe in detail what you did technically and how it works?</p>
+				<p>Using procedural generation and autotiling to create dugeon rooms and overworld map. Used a bit of noise to create an atmospheric component to the project.</p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Reflection</h2>
-				<p>Each person that worked on the code should reflect on the process, the difficulties, and the successes of the experiment.</p>
+				<p>The project is fun to mess with and overall going smoothly.</p>
 			</div>
 
 		</section>
