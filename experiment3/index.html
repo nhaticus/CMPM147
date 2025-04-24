@@ -26,8 +26,8 @@
 	<script type="text/javascript" src="./js/project.js" DEFER></script>
 	<!-- Use me for a p5.js project -->
 	<script type="text/javascript" src="./js/sketch.js" DEFER></script>
-	<script type="text/javascript" src="./js/solution.js" DEFER></script>
-	
+	<script type="text/javascript" src="./js/dungeon.js" DEFER></script>
+	<script type="text/javascript" src="./js/overworld.js" DEFER></script>
 </head>
 <body>
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
@@ -37,23 +37,20 @@
 			<h1>Experiment 3 - Alternate Worlds</h1>
 
 			<div class="minor-section">
-				<div id="canvas-container">
-					<div class="reseedButton-box">
-						<button id="reseedButton">Reseed</button>
-						<span id="seedReport"></span>
-					</div>
-					<span id="canvasContainer" style="margin: 10px;"></span>
+				<div class="reseedButton-box">
+					<button id="reseedButton">Reseed</button>
+					<span id="seedReport"></span>
+					<button id="switchButton">Switch</button>
+				</div>
+				<div id="canvas-container" class="canvasContainer"></div>
+				<div id="ascii-wrapper">
 					<textarea 
 						id="asciiBox" 
-						cols="20" 
-						rows="20" 
-						style="opacity: 0.5; letter-spacing: 1ex; width: 320px; margin: 10px; font-family: monospace;">
+						cols="40" 
+						rows="40" 
+						style="width: 600px; height: 650px;">
 					</textarea>
 				</div>
-				<div class="fullscreen-box">
-					<button id="fullscreen">Fullscreen</button>
-				</div>
- 
 			<div class="minor-section">
 				<h2>Description</h2>
 				<p>Using Kacper Woźniak's tileset to generate overworld and dungeon map</p>

@@ -1,12 +1,13 @@
-// sketch.js - purpose and description here
-// Author: Your Name
-// Date:
+// sketch.js - to generate a grid and fill it with tiles depending on style
+// Author: Nhat Thai
+// Date: 04/21/2025
 
 // Baseic
 let seed = 0;
 let tilesetImage;
 let currentGrid = [];
 let numRows, numCols;
+let currentStyle = "overworld"; // "dungeon" or "overworld"
 
 function preload() {
   tilesetImage = loadImage("../img/tilesetP8.png");
@@ -21,7 +22,11 @@ function reseed() {
 }
 
 function regenerateGrid() {
-  select("#asciiBox").value(gridToString(generateGrid(numCols, numRows)));
+  if (currentStyle == "dungeon") {
+  select("#asciiBox").value(gridToString(generateDungeonGrid(numCols, numRows)));
+  } else if (currentStyle == "overworld") {
+    select("#asciiBox").value(gridToString(generateOverworldGrid(numCols, numRows)));
+  }
   reparseGrid();
 }
 
@@ -55,18 +60,30 @@ function setup() {
   numCols = select("#asciiBox").attribute("rows") | 0;
   numRows = select("#asciiBox").attribute("cols") | 0;
 
-  createCanvas(16 * numCols, 16 * numRows).parent("canvasContainer");
+  createCanvas(16 * numCols, 16 * numRows).parent("canvas-container");
   select("canvas").elt.getContext("2d").imageSmoothingEnabled = false;
 
   select("#reseedButton").mousePressed(reseed);
   select("#asciiBox").input(reparseGrid);
+  select("#switchButton").mousePressed(() => {
+    seed = 1109;
+    randomSeed(seed);
+    noiseSeed(seed);
+    select("#seedReport").html("seed " + seed);
+    currentStyle = currentStyle === "dungeon" ? "overworld" : "dungeon";
+    regenerateGrid();
+  });
 
   reseed();
 }
 
 function draw() {
   randomSeed(seed);
-  drawGrid(currentGrid);
+  if (currentStyle === "dungeon") {
+    drawDungeonGrid(currentGrid);
+  } else if (currentStyle === "overworld") {
+    drawOverworldGrid(currentGrid);
+  }
 }
 
 function placeTile(i, j, ti, tj) {
