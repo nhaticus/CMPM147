@@ -71,6 +71,7 @@ function setup() {
     noiseSeed(seed);
     select("#seedReport").html("seed " + seed);
     currentStyle = currentStyle === "dungeon" ? "overworld" : "dungeon";
+    select("#switchReport").html("Mode: " + currentStyle);
     regenerateGrid();
   });
 

@@ -43,6 +43,12 @@ function drawOverworldGrid(grid) {
             } else if (gridCheck(grid, i, j, 'd')) { // dirt
                 drawOverworldContext(grid, i, j, 'd', 0, 7);
             }
+            // snowstorm
+            let b = noise(i * 0.01 + millis() / 1500, j * 0.01 + millis()/ 1500);
+            let a = map(b, 0, 1, 0, 150);
+            noStroke();
+            fill(100, 255, 255, a);
+            rect(j * 16, i * 16, 16, 16);  
         }
     }
 }
